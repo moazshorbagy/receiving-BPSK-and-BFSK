@@ -4,7 +4,6 @@
 function x = BPSKModulator(inStream, A)
 
 w_c = 4 * 2 * pi / 40;
-t = 0 : 1 : 40;
 
 x = zeros(1,length(inStream));
 for i = 1 : length(inStream)
