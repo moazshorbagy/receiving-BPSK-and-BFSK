@@ -1,6 +1,5 @@
-function x = generateRandomBitStream(size)
+function x = generateRandomBitStream(randBits)
 
-randBits = round(rand(1,size));
 Tb = 40;
 x = zeros(1, length(randBits) * Tb);
 k = 1;
