@@ -3,11 +3,13 @@ clear
 clc
 
 numberOfBits = 15;
+Tb = 40;
+N_0 = 2;
 AverageBER = zeros(1, 9);
 ActualBER = zeros(1, 9);
 for snr = -4:4
     BER = zeros(1, 20);
-    A = sqrt(10.^(snr/10)*2*2/40);
+    A = sqrt(10.^(snr/10)*2*2/Tb);
     for realization = 1:20
         
         % obtaining the random stream
@@ -29,7 +31,7 @@ for snr = -4:4
     % the observed average bit error rate
     AverageBER(snr+5) = sum(BER)/length(BER);
     % the actual bit error rate
-    ActualBER(snr+5) = 0.5 * erfc(sqrt(((A.^2)*40)/8));
+    ActualBER(snr+5) = 0.5 * erfc(sqrt(((A.^2)*Tb)/8));
 end
 
 %% plotting bit error rate
